@@ -3,7 +3,7 @@ Description=Selenium Hub
 
 [Service]
 TimeoutStartSec=0
-ExecStart=java -jar selenium-server-standalone-2.53.0.jar -role hub
+ExecStart=/usr/bin/java -jar /vagrant/.files/selenium-server-standalone-2.53.0.jar -role hub
 
 [Install]
 WantedBy=multi-user.target
