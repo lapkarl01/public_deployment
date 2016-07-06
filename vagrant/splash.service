@@ -1,8 +1,15 @@
 [Unit]
 Description=Splash service
+Requires=docker.service
+After=docker.service
 
 [Service]
 TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop splash
+ExecStartPre=-/usr/bin/docker rm splash
+ExecStartPre=/usr/bin/docker pull scrapinghub/splash
+ExecStart=/usr/bin/docker run --rm --name splash scrapinghub/splash
 ExecStart=/usr/bin/docker run -p 5023:5023 -p 8050:8050 -p 8051:8051 scrapinghub/splash
 
 [Install]
