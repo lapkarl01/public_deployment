@@ -1,7 +1,10 @@
 [Unit]
 Description=Selenium Hub
+After=network.target
 
 [Service]
+Type=simple
+Restart=always
 TimeoutStartSec=0
 ExecStart=/usr/bin/java -jar /opt/selenium-server-standalone.jar -role hub
 

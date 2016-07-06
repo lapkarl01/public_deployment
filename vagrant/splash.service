@@ -1,11 +1,12 @@
 [Unit]
 Description=Splash service
 Requires=docker.service
-After=docker.service
+After=network.target docker.service
 
 [Service]
-TimeoutStartSec=0
+Type=simple
 Restart=always
+TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker stop splash
 ExecStartPre=-/usr/bin/docker rm splash
 ExecStartPre=/usr/bin/docker pull scrapinghub/splash

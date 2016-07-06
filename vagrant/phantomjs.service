@@ -1,9 +1,11 @@
 [Unit]
 Description=PhantomJS
-After=selenium-hub.service
+After=network.target selenium-hub.service
 Requires=selenium-hub.service
 
 [Service]
+Type=simple
+Restart=always
 TimeoutStartSec=0
 ExecStart=/opt/phantomjs --webdriver=7001 --webdriver-selenium-grid-hub=http://127.0.0.1:4444
 
