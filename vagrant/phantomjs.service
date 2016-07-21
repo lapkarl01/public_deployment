@@ -7,7 +7,7 @@ Requires=selenium-hub.service
 Type=simple
 Restart=always
 TimeoutStartSec=0
-ExecStart=/opt/phantomjs --webdriver=7001 --webdriver-selenium-grid-hub=http://127.0.0.1:4444
+ExecStart=/opt/phantomjs --web-security=false --ssl-protocol=any --ignore-ssl-errors=true --webdriver=7001 --webdriver-selenium-grid-hub=http://127.0.0.1:4444
 
 [Install]
 WantedBy=multi-user.target
